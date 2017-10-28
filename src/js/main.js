@@ -72,7 +72,7 @@ function printStats(res) {
   console.log(`       Max: ${formatNumber(ss.max(res))}`);
   console.log(`      Mean: ${formatNumber(ss.mean(res))}`);
   console.log(`    Median: ${formatNumber(ss.median(res))}`);
-  console.log(`  Variance: ${formatNumber(ss.variance(res))}`);
+  console.log(`  Variances: ${formatNumber(ss.variance(res))}`);
   console.log('');
 }
 
