@@ -1,11 +1,14 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 module.exports = {
-   entry: './src/main.js',
+   entry: './src/js/main.js',
    output: {
        path: path.resolve(__dirname, 'build'),
-       filename: 'main.bundle.js'
+       filename: 'js/main.bundle.js'
    },
    module: {
        loaders: [
@@ -13,9 +16,18 @@ module.exports = {
                test: /\.js$/,
                loader: 'babel-loader',
                exclude: '/node_modules'
+           },
+           {
+              test: /\.html$/,
+              loader: 'html-loader',
+              template: 'index.ejs'
            }
        ]
    },
+   plugins: [
+     new CleanWebpackPlugin(['build']),
+     new HtmlWebpackPlugin()
+   ],
    stats: {
        colors: true
    },

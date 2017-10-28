@@ -1,4 +1,4 @@
-const ss = require('simple-statistics')
+const ss = require('simple-statistics');
 
 const simulationParams = {
   months: 120, // 10Y
