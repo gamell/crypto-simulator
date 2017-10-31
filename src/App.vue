@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <h1>Crypto-assets sell simulator</h1>
-    <parameters></parameters>
+    <parameters v-on:run="run"></parameters>
     <results/>
   </div>
 </template>
@@ -18,6 +18,11 @@
     data () {
       return {
         msg: 'Welcome to Your Vue.js App'
+      }
+    },
+    methods: {
+      run(params) {
+        alert(`running with ${JSON.stringify(params, null, 2)}`);
       }
     }
   };
