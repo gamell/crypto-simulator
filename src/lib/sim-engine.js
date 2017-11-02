@@ -85,6 +85,9 @@ function exec() {
   }
   printSimulationInfo();
   printStats(res);
+  return res;
 }
 
-exec();
+export default {
+  exec
+}

@@ -3,26 +3,33 @@
     <!-- <img src="./assets/logo.png"> -->
     <h1>Crypto-assets sell simulator</h1>
     <parameters v-on:run="run"></parameters>
-    <results/>
+    <div id="results">
+      <h2>Results</h2>
+      <histogram :data="results" />
+    </div>
   </div>
 </template>
 
 <script>
-  import Parameters from './components/Parameters.vue';
-  import Results from './components/Results.vue';
+  import parameters from './components/Parameters.vue';
+  import histogram from './components/Histogram.vue';
+  import simEngine from './lib/sim-engine.js';
+  //const simEngine = require('./lib/sim-engine.js');
+
   export default {
     name: 'app',
     components: {
-      Parameters, Results
+      parameters, histogram
     },
     data () {
       return {
-        msg: 'Welcome to Your Vue.js App'
+        results: [10, 234, 12, 50]
       }
     },
     methods: {
       run(params) {
         alert(`running with ${JSON.stringify(params, null, 2)}`);
+        this.results = simEngine.exec();
       }
     }
   };

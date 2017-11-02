@@ -9,18 +9,17 @@
         </li>
         <li>
           <label for="quantity">Initial quantity of Asset: </label>
-          <input type="number" id="quantity" placeholder="10.5" />
+          <input type="number" id="quantity" placeholder="10.5" v-model="params.quantity0" />
         </li>
         <li>
           <label for="price">Initial price of asset in USD: </label>
-          <input type="number" id="price" placeholder="6000" />
+          <input type="number" id="price" placeholder="6000" v-model="params.px0" />
         </li>
         <li>
           <button id="submit" @click="emitRun">Run</button>
         </li>
       </ul>
     </form>
-    <h2>Final parameters - Length: {{ params.length }}</h2>
   </div>
 </template>
 
@@ -30,14 +29,15 @@
     data() {
       return {
         params: {
-          length: 120
+          length: 120,
+          quantity0: 100,
+          px0: 7000
         }
       };
     },
     methods: {
       emitRun() {
         this.$emit('run', this.params);
-        alert('button clicked!');
       }
     }
   };
