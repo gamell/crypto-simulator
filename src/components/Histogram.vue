@@ -15,7 +15,6 @@ Links:
   const d3 = require('d3');
   export default {
     mounted: function() {
-      //var data = d3.range(10000).map(d3.randomBates(10));
       this.draw(this.data);
     },
     props: ['data'],
@@ -35,15 +34,17 @@ Links:
             g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         const x = d3.scaleLinear()
-            .rangeRound([0, width]);
+            .domain([0, d3.max(data)])
+            .rangeRound([0, width])
+            .clamp(true);
 
         const bins = d3.histogram()
             .domain(x.domain())
-            .thresholds(x.ticks(20))
+            .thresholds(x.ticks(50))
             (data);
 
         const y = d3.scaleLinear()
-            .domain([0, d3.max(bins, function(d) { return d.length; })])
+            .domain([0, d3.max(bins, (d) => d.length)])
             .range([height, 0]);
 
         const bar = g.selectAll(".bar")

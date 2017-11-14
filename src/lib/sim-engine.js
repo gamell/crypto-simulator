@@ -11,7 +11,7 @@ const simulationParams = {
 };
 
 let res = [];
-const scenarios = 1000000;
+const scenarios = 1000;
 
 function simulation({ months, btc, btcPx, monthlyVol, nonCryptoAssets, totalAssets, chanceOfRuin }) {
 

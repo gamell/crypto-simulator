@@ -21,9 +21,9 @@
     components: {
       parameters, histogram
     },
-    data () {
+    data() {
       return {
-        results: [10, 234, 12, 50]
+        results: [10, 234, 12, 50, 10, 10, 9, 10, 8, 10, 10, 10]
       }
     },
     methods: {
